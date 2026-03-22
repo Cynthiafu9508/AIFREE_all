@@ -47,8 +47,8 @@
 }
 
 .avatar-circle {
-  width: 180rpx;
-  height: 180rpx;
+  width: 144rpx;
+  height: 144rpx;
   border-radius: 50%;
   overflow: hidden;
   background: linear-gradient(160deg, #7dd8f8 0%, #29b6f6 100%);
@@ -383,8 +383,8 @@
 }
 
 .sheet-avatar {
-  width: 80rpx;
-  height: 80rpx;
+  width: 64rpx;
+  height: 64rpx;
   border-radius: 50%;
   overflow: hidden;
   background: linear-gradient(160deg, #7dd8f8 0%, #29b6f6 100%);

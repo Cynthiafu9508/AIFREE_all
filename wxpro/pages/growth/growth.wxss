@@ -1,4 +1,9 @@
+/* ===== 未绑定状态（原有样式） ===== */
 .page {
+  min-height: 100vh;
+}
+
+.unbound-wrap {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(160deg, #c8d8e2 0%, #a8bcc8 60%, #9aaebb 100%);
@@ -126,4 +131,113 @@
   font-weight: 600;
   color: #ffffff;
   margin-top: 8rpx;
+}
+
+/* ===== 已绑定状态 ===== */
+.bound-page {
+  height: 100vh;
+  background: #f5f7fa;
+  box-sizing: border-box;
+}
+
+.bound-header {
+  padding: 56rpx 40rpx 32rpx;
+  margin-top: 5vh;
+}
+
+.bound-title {
+  display: block;
+  font-size: 52rpx;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16rpx;
+}
+
+.bound-subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: #888;
+  line-height: 1.6;
+}
+
+.feature-list {
+  padding: 0 28rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border-radius: 28rpx;
+  border: 3rpx solid transparent;
+  overflow: hidden;
+  padding: 24rpx;
+  box-sizing: border-box;
+  gap: 24rpx;
+}
+
+.card-active {
+  border-width: 3rpx;
+  border-style: solid;
+}
+
+.feature-img {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.4);
+}
+
+.feature-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180rpx;
+}
+
+.feature-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8rpx;
+}
+
+.feature-desc {
+  display: block;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.feature-btn-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16rpx;
+}
+
+.feature-btn {
+  height: 60rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 600;
+  padding: 0 28rpx;
+}
+
+.btn-active {
+  background: transparent;
+  border: 2rpx solid;
+}
+
+.btn-start {
+  color: #ffffff;
 }

@@ -1,36 +1,71 @@
 <view class="page">
 
-  <!-- ① 提示文案区 -->
-  <view class="tip-box">
-    <view class="tip-lines">
-      <text class="tip-line">智能设备的电源</text>
-      <text class="tip-line">在鲨鱼背包里哦～</text>
+  <!-- ===== 未绑定状态 ===== -->
+  <view wx:if="{{!isBound}}" class="unbound-wrap">
+    <view class="tip-box">
+      <view class="tip-lines">
+        <text class="tip-line">智能设备的电源</text>
+        <text class="tip-line">在鲨鱼背包里哦～</text>
+      </view>
+      <image class="tip-arrow" src="/images/hint-arrow.svg" mode="aspectFit" />
     </view>
-    <image class="tip-arrow" src="/images/hint-arrow.svg" mode="aspectFit" />
-  </view>
+    <view class="dog-wrap">
+      <image class="dog-img" src="/images/partner.png" mode="aspectFit" />
+    </view>
+    <view class="btn-wrap">
+      <view class="primary-btn" bindtap="onBindDevice">请先绑定设备</view>
+    </view>
+    <view class="tab-placeholder"></view>
 
-  <!-- ② 狗狗图片区 -->
-  <view class="dog-wrap">
-    <image class="dog-img" src="/images/partner.png" mode="aspectFit" />
-  </view>
-
-  <!-- ③ 按钮区 -->
-  <view class="btn-wrap">
-    <view class="primary-btn" bindtap="onBindDevice">请先绑定设备</view>
-  </view>
-
-  <!-- ④ TabBar 占位 -->
-  <view class="tab-placeholder"></view>
-
-  <!-- 添加设备引导弹窗 -->
-  <view class="add-modal-mask" wx:if="{{showAddModal}}">
-    <view class="add-modal">
-      <text class="add-modal-title">添加设备</text>
-      <text class="add-modal-step">1. 取出鲨鱼背包内的机芯盒，打开机芯盒的电源开关；</text>
-      <image class="add-modal-img" src="/images/添加设备.png" mode="widthFix" />
-      <text class="add-modal-step">2. 设备发出"进入配网模式"的提示音</text>
-      <view class="add-modal-btn" bindtap="goToScan">我知道了</view>
+    <!-- 添加设备引导弹窗 -->
+    <view class="add-modal-mask" wx:if="{{showAddModal}}">
+      <view class="add-modal">
+        <text class="add-modal-title">添加设备</text>
+        <text class="add-modal-step">1. 取出鲨鱼背包内的机芯盒，打开机芯盒的电源开关；</text>
+        <image class="add-modal-img" src="/images/添加设备.png" mode="widthFix" />
+        <text class="add-modal-step">2. 设备发出"进入配网模式"的提示音</text>
+        <view class="add-modal-btn" bindtap="goToScan">我知道了</view>
+      </view>
     </view>
   </view>
+
+  <!-- ===== 已绑定状态 ===== -->
+  <scroll-view wx:else class="bound-page" scroll-y>
+    <view class="bound-header">
+      <text class="bound-title">专属成长</text>
+      <text class="bound-subtitle">无需繁琐设置，一键选择定制化启蒙指导，精准贴合孩子成长节奏。</text>
+    </view>
+
+    <view class="feature-list">
+      <view
+        wx:for="{{features}}"
+        wx:key="id"
+        class="feature-card {{item.id === activeFeatureId ? 'card-active' : ''}}"
+        style="background: {{item.bg}}; border-color: {{item.id === activeFeatureId ? item.borderColor : 'transparent'}};"
+        data-id="{{item.id}}"
+        bindtap="onSelectFeature"
+      >
+        <image class="feature-img" src="{{item.image}}" mode="aspectFill" />
+        <view class="feature-info">
+          <text class="feature-title">{{item.title}}</text>
+          <text class="feature-desc">{{item.desc}}</text>
+          <view class="feature-btn-wrap">
+            <view
+              wx:if="{{item.id === activeFeatureId}}"
+              class="feature-btn btn-active"
+              style="color: {{item.btnColor}}; border-color: {{item.btnColor}};"
+            >正在使用</view>
+            <view
+              wx:else
+              class="feature-btn btn-start"
+              style="background: {{item.btnColor}};"
+            >🐾 开始</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="tab-placeholder"></view>
+  </scroll-view>
 
 </view>

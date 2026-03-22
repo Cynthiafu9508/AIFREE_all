@@ -93,7 +93,7 @@ Page({
   },
 
   onConfigNetwork() {
-    wx.showToast({ title: '配网功能开发中', icon: 'none' })
+    this.setData({ showAddModal: true })
   },
 
   onUnbind() {

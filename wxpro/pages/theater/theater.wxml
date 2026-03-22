@@ -1,35 +1,106 @@
 <view class="page">
 
-  <!-- ① 提示文案区 -->
-  <view class="tip-box">
-    <view class="tip-lines">
-      <text class="tip-line">智能设备的电源</text>
-      <text class="tip-line">在鲨鱼背包里哦～</text>
+  <!-- ===== 未绑定状态 ===== -->
+  <view wx:if="{{!isBound}}" class="unbound-wrap">
+    <view class="tip-box">
+      <view class="tip-lines">
+        <text class="tip-line">智能设备的电源</text>
+        <text class="tip-line">在鲨鱼背包里哦～</text>
+      </view>
+      <image class="tip-arrow" src="/images/hint-arrow.svg" mode="aspectFit" />
     </view>
-    <image class="tip-arrow" src="/images/hint-arrow.svg" mode="aspectFit" />
+    <view class="dog-wrap">
+      <image class="dog-img" src="/images/partner.png" mode="aspectFit" />
+    </view>
+    <view class="btn-wrap">
+      <view class="primary-btn" bindtap="onBindDevice">请先绑定设备</view>
+    </view>
+    <view class="tab-placeholder"></view>
+
+    <view class="add-modal-mask" wx:if="{{showAddModal}}">
+      <view class="add-modal">
+        <text class="add-modal-title">添加设备</text>
+        <text class="add-modal-step">1. 取出鲨鱼背包内的机芯盒，打开机芯盒的电源开关；</text>
+        <image class="add-modal-img" src="/images/添加设备.png" mode="widthFix" />
+        <text class="add-modal-step">2. 设备发出"进入配网模式"的提示音</text>
+        <view class="add-modal-btn" bindtap="goToScan">我知道了</view>
+      </view>
+    </view>
   </view>
 
-  <!-- ② 狗狗图片区 -->
-  <view class="dog-wrap">
-    <image class="dog-img" src="/images/partner.png" mode="aspectFit" />
-  </view>
+  <!-- ===== 已绑定状态 ===== -->
+  <scroll-view wx:else class="bound-page" scroll-y>
 
-  <!-- ③ 按钮区 -->
-  <view class="btn-wrap">
-    <view class="primary-btn" bindtap="onBindDevice">请先绑定设备</view>
-  </view>
+    <!-- 状态栏占位 -->
+    <view style="height: {{statusBarHeight}}px;"></view>
 
-  <!-- ④ TabBar 占位 -->
-  <view class="tab-placeholder"></view>
+    <!-- 顶部 Header -->
+    <view class="theater-header">
+      <view class="header-text">
+        <text class="header-title">贝贝鲨剧场</text>
+        <text class="header-subtitle">英文小剧场持续更新中，敬请期待更多精彩内容</text>
+      </view>
+      <image class="header-dog" src="/images/点赞.png" mode="aspectFit" />
+    </view>
 
-  <!-- 添加设备引导弹窗 -->
-  <view class="add-modal-mask" wx:if="{{showAddModal}}">
-    <view class="add-modal">
-      <text class="add-modal-title">添加设备</text>
-      <text class="add-modal-step">1. 取出鲨鱼背包内的机芯盒，打开机芯盒的电源开关；</text>
-      <image class="add-modal-img" src="/images/添加设备.png" mode="widthFix" />
-      <text class="add-modal-step">2. 设备发出"进入配网模式"的提示音</text>
-      <view class="add-modal-btn" bindtap="goToScan">我知道了</view>
+    <!-- 剧集列表 -->
+    <view class="ep-list">
+      <view
+        wx:for="{{episodes}}"
+        wx:key="id"
+        class="ep-card"
+        data-status="{{item.status}}"
+        data-id="{{item.id}}"
+        bindtap="onEpisodeTap"
+      >
+        <!-- 缩略图 -->
+        <view class="ep-thumb-wrap">
+          <image class="ep-thumb" src="/images/partner.png" mode="aspectFill" />
+          <!-- 播放图标（已解锁） -->
+          <view class="ep-play-icon" wx:if="{{item.status === 'unlocked'}}">
+            <view class="play-triangle"></view>
+          </view>
+          <!-- 锁图标（未解锁） -->
+          <view class="ep-lock-icon" wx:else>🔒</view>
+        </view>
+
+        <!-- 文字信息 -->
+        <view class="ep-info">
+          <text class="ep-title">{{item.num}} {{item.title}}</text>
+          <text class="ep-desc">{{item.desc}}</text>
+
+          <!-- 解锁进度（next状态） -->
+          <view class="ep-progress-row" wx:if="{{item.status === 'next'}}">
+            <text class="ep-progress-label">解锁进度</text>
+            <view class="ep-progress-bg">
+              <view class="ep-progress-fill" style="width: {{item.progress / item.total * 100}}%;"></view>
+            </view>
+            <text class="ep-progress-num">{{item.progress}}/{{item.total}}</text>
+          </view>
+
+          <!-- 状态文字 -->
+          <text class="ep-status-text status-unlocked" wx:if="{{item.status === 'unlocked'}}">已解锁</text>
+          <text class="ep-status-text status-locked" wx:if="{{item.status === 'locked'}}">待解锁</text>
+        </view>
+      </view>
+
+      <!-- 底部提示 -->
+      <view class="ep-footer">
+        <view class="ep-footer-line"></view>
+        <text class="ep-footer-text">新剧集敬请期待</text>
+        <view class="ep-footer-line"></view>
+      </view>
+    </view>
+
+    <view class="tab-placeholder"></view>
+  </scroll-view>
+
+  <!-- 锁定弹窗 -->
+  <view class="locked-modal-mask" wx:if="{{showLockedModal}}" bindtap="closeLockedModal">
+    <view class="locked-modal" catchtap="">
+      <text class="locked-modal-title">🔒 该剧集尚未解锁</text>
+      <text class="locked-modal-desc">继续与贝贝鲨对话，完成解锁任务后即可观看第{{lockedEp.num}}集</text>
+      <view class="locked-modal-btn" bindtap="closeLockedModal">我知道了</view>
     </view>
   </view>
 
