@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  padding-top: env(safe-area-inset-top);
+  padding-top: calc(env(safe-area-inset-top) + 10vh);
   padding-bottom: 0;
 }
 
