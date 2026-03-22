@@ -78,3 +78,52 @@
   height: calc(100rpx + env(safe-area-inset-bottom));
   flex-shrink: 0;
 }
+
+/* 添加设备弹窗 */
+.add-modal-mask {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.add-modal {
+  width: 600rpx;
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 48rpx 48rpx 40rpx;
+}
+.add-modal-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 24rpx;
+}
+.add-modal-step {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 16rpx;
+}
+.add-modal-img {
+  width: 100%;
+  margin: 8rpx 0 24rpx;
+  border-radius: 16rpx;
+}
+.add-modal-btn {
+  width: 100%;
+  height: 96rpx;
+  background: #18AEFB;
+  border-radius: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 8rpx;
+}

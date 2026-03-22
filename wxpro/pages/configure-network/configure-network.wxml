@@ -1,0 +1,51 @@
+<view class="page">
+  <view style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="goBack">‹</view>
+    <view class="nav-right"></view>
+  </view>
+
+  <view class="content">
+    <text class="page-title">配置网络</text>
+    <text class="page-sub">设备仅支持2.4GHz Wi-Fi和个人热点连接。</text>
+
+    <!-- 设备名确认 -->
+    <view class="device-row">
+      <text class="device-row-name">{{deviceName}}</text>
+      <text class="device-row-check">✓</text>
+    </view>
+
+    <!-- WiFi 信息 -->
+    <text class="section-label">请输入 WiFi 信息</text>
+
+    <view class="input-row">
+      <input class="input-field" placeholder="请输入 WiFi 名称"
+        placeholder-class="input-ph" value="{{wifiSSID}}" bindinput="onSSIDInput" />
+      <text class="select-link" bindtap="openWifiPicker">选择网络</text>
+    </view>
+
+    <view class="input-row">
+      <input class="input-field" placeholder="请输入 WiFi 密码"
+        placeholder-class="input-ph" value="{{wifiPwd}}"
+        password="{{!showPwd}}" bindinput="onPwdInput" />
+      <view class="eye-btn" bindtap="togglePwd">
+        <text class="eye-icon">{{showPwd ? '👁' : '🙈'}}</text>
+      </view>
+    </view>
+
+    <view class="btn-start {{wifiSSID ? '' : 'disabled'}}" bindtap="onStartConfig">开始配网</view>
+  </view>
+
+  <!-- 选择网络弹窗 -->
+  <view class="picker-mask" wx:if="{{showWifiPicker}}" bindtap="closeWifiPicker">
+    <view class="picker-card" catchtap="">
+      <text class="picker-title">选择网络</text>
+      <view class="picker-list">
+        <view class="picker-item" wx:for="{{wifiList}}" wx:key="*this"
+          bindtap="onSelectWifi" data-name="{{item}}">
+          <text class="picker-item-name">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

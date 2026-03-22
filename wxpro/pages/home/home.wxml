@@ -31,4 +31,15 @@
   <!-- ④ TabBar 占位 -->
   <view class="tab-placeholder"></view>
 
+  <!-- 添加设备引导弹窗 -->
+  <view class="add-modal-mask" wx:if="{{showAddModal}}">
+    <view class="add-modal">
+      <text class="add-modal-title">添加设备</text>
+      <text class="add-modal-step">1. 取出鲨鱼背包内的机芯盒，打开机芯盒的电源开关；</text>
+      <image class="add-modal-img" src="/images/添加设备.png" mode="widthFix" />
+      <text class="add-modal-step">2. 设备发出"进入配网模式"的提示音</text>
+      <view class="add-modal-btn" bindtap="goToScan">我知道了</view>
+    </view>
+  </view>
+
 </view>

@@ -1,0 +1,52 @@
+<view class="page">
+  <view style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="goBack">‹</view>
+    <view class="nav-right"></view>
+  </view>
+
+  <scroll-view class="content" scroll-y>
+    <text class="page-title">手机正在连接设备</text>
+    <text class="page-sub">请确保设备已开机并进入配网模式</text>
+
+    <!-- 扫描中：转圈提示 -->
+    <view class="scan-toast" wx:if="{{state === 'scanning'}}">
+      <view class="spin-ring"></view>
+      <text class="scan-toast-text">正在搜索设备...</text>
+    </view>
+
+    <!-- 未找到 -->
+    <view class="notfound-row" wx:if="{{state === 'notFound'}}">
+      <text class="notfound-icon">⊙</text>
+      <text class="notfound-text">未找到设备</text>
+    </view>
+
+    <!-- 找到设备列表 -->
+    <view wx:if="{{state === 'found'}}">
+      <view class="device-row" wx:for="{{devices}}" wx:key="id">
+        <text class="device-row-name">{{item.name}}</text>
+        <view class="bind-btn" bindtap="onBind" data-id="{{item.id}}" data-name="{{item.name}}">绑定</view>
+      </view>
+    </view>
+
+    <!-- 重新扫描按钮（非扫描中时显示） -->
+    <view class="rescan-btn" wx:if="{{state !== 'scanning'}}" bindtap="startScan">重新扫描</view>
+
+    <!-- 找不到设备？帮助区 -->
+    <view class="faq-section">
+      <text class="faq-title">找不到设备?</text>
+
+      <text class="faq-item-title">• 设备未进入配网模式</text>
+      <text class="faq-item-desc">重启机芯盒，将机芯盒电源关闭后再打开。</text>
+
+      <text class="faq-item-title">• 手机未开启蓝牙</text>
+      <text class="faq-item-desc">请检查是否开启蓝牙，前往手机【系统设置】开启"蓝牙"功能，再返回小程序操作。</text>
+
+      <text class="faq-item-title">• 未授权微信蓝牙</text>
+      <text class="faq-item-desc">·苹果手机：前往手机【系统设置】中搜索"蓝牙（隐私与安全性)"进入后开启【微信】授权。</text>
+      <text class="faq-item-desc">·安卓手机：前往手机【系统设置】中搜索"附近设备"进入后开启【微信】授权。</text>
+    </view>
+
+    <view class="bottom-space"></view>
+  </scroll-view>
+</view>

@@ -73,6 +73,54 @@
     <view class="bottom-space"></view>
   </scroll-view>
 
+  <!-- 切换设备面板 -->
+  <view class="sheet-mask" wx:if="{{showSwitchSheet}}" bindtap="closeSwitchSheet">
+    <view class="sheet" catchtap="">
+      <view class="sheet-header">
+        <text class="sheet-title">切换设备</text>
+        <view class="sheet-close" bindtap="closeSwitchSheet">✕</view>
+      </view>
+      <scroll-view class="sheet-list" scroll-y>
+        <view class="sheet-item {{item.id === activeDeviceId ? 'active' : ''}}"
+          wx:for="{{deviceList}}" wx:key="id"
+          bindtap="onSelectDevice" data-id="{{item.id}}">
+          <view class="sheet-avatar">
+            <image class="sheet-avatar-img" src="/images/partner.png" mode="aspectFill" />
+          </view>
+          <text class="sheet-item-name">{{item.name}}</text>
+          <text class="sheet-check" wx:if="{{item.id === activeDeviceId}}">✓</text>
+        </view>
+        <view class="sheet-item sheet-add" bindtap="onAddDevice">
+          <view class="sheet-add-icon">＋</view>
+          <text class="sheet-item-name">添加新设备</text>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <!-- 添加设备引导弹窗 -->
+  <view class="modal-mask" wx:if="{{showAddModal}}" bindtap="closeAddModal">
+    <view class="add-modal" catchtap="">
+      <text class="add-modal-title">添加设备</text>
+      <text class="add-modal-step">1. 取出鲨鱼背包内的机芯盒，打开机芯盒的电源开关；</text>
+      <image class="add-modal-img" src="/images/添加设备.png" mode="widthFix" />
+      <text class="add-modal-step">2. 设备发出"进入配网模式"的提示音</text>
+      <view class="add-modal-btn" bindtap="goToScan">我知道了</view>
+    </view>
+  </view>
+
+  <!-- 解绑确认弹窗 -->
+  <view class="modal-mask" wx:if="{{showUnbindModal}}">
+    <view class="unbind-modal">
+      <text class="unbind-modal-title">提示</text>
+      <text class="unbind-modal-content">为了保护您的隐私，解绑设备后，所有聊天记录会清空！如若重新绑定设备，需重启设备并双击唤醒键，以进入配网状态。</text>
+      <view class="unbind-modal-btns">
+        <view class="unbind-btn cancel" bindtap="cancelUnbind">取消</view>
+        <view class="unbind-btn confirm" bindtap="confirmUnbind">确定</view>
+      </view>
+    </view>
+  </view>
+
   <!-- 昵称编辑弹窗 -->
   <view class="modal-mask" wx:if="{{showNicknameModal}}" bindtap="cancelNickname">
     <view class="modal-card" catchtap="">

@@ -225,3 +225,203 @@
 }
 
 .bottom-space { height: 80rpx; }
+
+/* 解绑确认弹窗 */
+.unbind-modal {
+  width: 560rpx;
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 56rpx 48rpx 40rpx;
+}
+
+.unbind-modal-title {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #111;
+  text-align: center;
+  margin-bottom: 28rpx;
+}
+
+.unbind-modal-content {
+  display: block;
+  font-size: 28rpx;
+  color: #444;
+  line-height: 1.75;
+  text-align: center;
+  margin-bottom: 48rpx;
+}
+
+.unbind-modal-btns {
+  display: flex;
+  gap: 24rpx;
+}
+
+.unbind-btn {
+  flex: 1;
+  height: 88rpx;
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.unbind-btn.cancel {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.unbind-btn.confirm {
+  background: #18AEFB;
+  color: #ffffff;
+}
+
+/* 添加设备引导弹窗 */
+.add-modal {
+  width: 600rpx;
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 48rpx 48rpx 40rpx;
+}
+
+.add-modal-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 32rpx;
+}
+
+.add-modal-step {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 24rpx;
+}
+
+.add-modal-img {
+  width: 100%;
+  margin: 16rpx 0 24rpx;
+  border-radius: 16rpx;
+}
+
+.add-modal-btn {
+  width: 100%;
+  height: 96rpx;
+  background: #18AEFB;
+  border-radius: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 8rpx;
+}
+
+/* 切换设备底部面板 */
+.sheet-mask {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.sheet {
+  background: #ffffff;
+  border-radius: 32rpx 32rpx 0 0;
+  padding-bottom: env(safe-area-inset-bottom);
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40rpx 40rpx 24rpx;
+}
+
+.sheet-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #111;
+}
+
+.sheet-close {
+  font-size: 36rpx;
+  color: #999;
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet-list {
+  flex: 1;
+  padding: 0 24rpx 24rpx;
+}
+
+.sheet-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 16rpx;
+  border-radius: 20rpx;
+  margin-bottom: 8rpx;
+}
+
+.sheet-item.active {
+  background: #edf6ff;
+}
+
+.sheet-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(160deg, #7dd8f8 0%, #29b6f6 100%);
+  flex-shrink: 0;
+}
+
+.sheet-avatar-img {
+  width: 100%;
+  height: 100%;
+}
+
+.sheet-item-name {
+  flex: 1;
+  font-size: 30rpx;
+  color: #222;
+  margin-left: 24rpx;
+}
+
+.sheet-check {
+  font-size: 36rpx;
+  color: #18AEFB;
+  font-weight: 600;
+}
+
+.sheet-add {
+  margin-top: 8rpx;
+}
+
+.sheet-add-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+  color: #888;
+  flex-shrink: 0;
+}

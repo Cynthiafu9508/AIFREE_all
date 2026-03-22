@@ -1,0 +1,170 @@
+.page {
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 32rpx;
+  height: 88rpx;
+}
+
+.nav-back {
+  font-size: 56rpx;
+  color: #333;
+  width: 64rpx;
+  line-height: 1;
+  margin-top: -8rpx;
+}
+
+.nav-right { width: 64rpx; }
+
+.content {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32rpx 40rpx 0;
+}
+
+.page-title {
+  display: block;
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 12rpx;
+}
+
+.page-sub {
+  display: block;
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 48rpx;
+}
+
+/* 扫描中深色提示卡 */
+.scan-toast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 24rpx;
+  width: 240rpx;
+  height: 240rpx;
+  margin: 0 auto 48rpx;
+  gap: 24rpx;
+}
+
+.spin-ring {
+  width: 80rpx;
+  height: 80rpx;
+  border: 8rpx solid rgba(255,255,255,0.2);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.scan-toast-text {
+  font-size: 26rpx;
+  color: #ffffff;
+}
+
+/* 未找到设备 */
+.notfound-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-bottom: 32rpx;
+}
+
+.notfound-icon {
+  font-size: 32rpx;
+  color: #ff4d4f;
+}
+
+.notfound-text {
+  font-size: 30rpx;
+  color: #ff4d4f;
+  font-weight: 500;
+}
+
+/* 找到设备列表 */
+.device-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f5f5;
+  border-radius: 16rpx;
+  padding: 28rpx 32rpx;
+  margin-bottom: 16rpx;
+}
+
+.device-row-name {
+  font-size: 30rpx;
+  color: #222;
+}
+
+.bind-btn {
+  background: #18AEFB;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 600;
+  padding: 12rpx 36rpx;
+  border-radius: 40rpx;
+}
+
+/* 重新扫描按钮（描边样式） */
+.rescan-btn {
+  width: 100%;
+  height: 88rpx;
+  border: 2rpx solid #18AEFB;
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: #18AEFB;
+  margin: 16rpx 0 56rpx;
+  box-sizing: border-box;
+}
+
+/* 找不到设备 FAQ */
+.faq-section {
+  width: 100%;
+}
+
+.faq-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 28rpx;
+}
+
+.faq-item-title {
+  display: block;
+  font-size: 28rpx;
+  color: #18AEFB;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.faq-item-desc {
+  display: block;
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 24rpx;
+  padding-left: 16rpx;
+}
+
+.bottom-space { height: 80rpx; }

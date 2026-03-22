@@ -10,6 +10,8 @@
     "pages/password-setting/password-setting",
     "pages/help/help",
     "pages/device/device",
+    "pages/add-device/add-device",
+    "pages/configure-network/configure-network",
     "pages/doc/service",
     "pages/doc/privacy"
   ],
