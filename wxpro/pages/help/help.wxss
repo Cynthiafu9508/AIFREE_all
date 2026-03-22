@@ -1,0 +1,113 @@
+.page {
+  min-height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 32rpx;
+  height: 88rpx;
+  background: #ffffff;
+}
+
+.nav-back {
+  font-size: 56rpx;
+  color: #333;
+  width: 64rpx;
+  line-height: 1;
+  margin-top: -8rpx;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #222;
+}
+
+.nav-right { width: 64rpx; }
+
+.content {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32rpx 32rpx 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.h1 {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #111;
+  margin-top: 48rpx;
+  margin-bottom: 20rpx;
+  display: block;
+  width: 100%;
+}
+
+.body {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.7;
+  display: block;
+  margin-bottom: 8rpx;
+  width: 100%;
+}
+
+.category {
+  font-size: 28rpx;
+  color: #18AEFB;
+  font-weight: 500;
+  display: block;
+  margin-top: 28rpx;
+  margin-bottom: 12rpx;
+  width: 100%;
+}
+
+.numbered {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.7;
+  display: block;
+  margin-bottom: 4rpx;
+  padding-left: 16rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sub {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.7;
+  display: block;
+  margin-bottom: 4rpx;
+  padding-left: 48rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 8rpx;
+}
+
+.body-inline {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.7;
+}
+
+.wechat-id {
+  font-size: 28rpx;
+  color: #18AEFB;
+  line-height: 1.7;
+}
+
+.bottom-space { height: 80rpx; }
