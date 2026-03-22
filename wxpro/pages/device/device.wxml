@@ -11,8 +11,10 @@
 
     <!-- 设备头像 + 名称 -->
     <view class="avatar-section">
-      <view class="avatar-circle">
-        <image class="avatar-img" src="/images/profile/hi.png" mode="aspectFill" />
+      <view class="avatar-wrap">
+        <view class="avatar-circle">
+          <image class="avatar-img" src="{{avatar}}" mode="aspectFit" />
+        </view>
       </view>
       <text class="device-name">{{deviceName || '未绑定设备'}}</text>
     </view>

@@ -48,17 +48,19 @@ Page({
 
     // 占位：将设备绑定写入本地，后续对接真实配网接口
     const list = wx.getStorageSync('deviceList') || []
+    const isFirstDevice = list.length === 0
     if (!list.find(d => d.id === deviceId)) {
       list.push({ id: deviceId, name: deviceName })
       wx.setStorageSync('deviceList', list)
     }
     wx.setStorageSync('activeDeviceId', deviceId)
     wx.setStorageSync('deviceName', deviceName)
+    wx.setStorageSync('activeFeatureId', 'english')
 
     wx.showToast({ title: '配网成功', icon: 'success' })
     setTimeout(() => {
-      // 返回到设备管理页（跳过添加设备页）
-      wx.navigateBack({ delta: 2 })
+      // 无论是否首台设备，统一跳转到伙伴页，触发全局切换到新设备
+      wx.switchTab({ url: '/pages/home/home' })
     }, 1200)
   }
 })

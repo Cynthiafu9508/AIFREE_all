@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  padding-top: calc(env(safe-area-inset-top) + 35vh);
+  padding-top: calc(env(safe-area-inset-top) + 25vh);
 }
 
 .tip-box {

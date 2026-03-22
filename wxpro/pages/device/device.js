@@ -1,3 +1,12 @@
+const AVATARS = [
+  '/images/profile/hi.png',
+  '/images/profile/招手.png',
+  '/images/profile/点赞.png',
+  '/images/profile/疑惑.png',
+  '/images/profile/趴着.png',
+  '/images/profile/捂嘴笑.png',
+]
+
 Page({
   data: {
     deviceName: '',
@@ -10,13 +19,19 @@ Page({
     showAddModal: false,
     deviceList: [],
     activeDeviceId: '',
-    statusBarHeight: 0
+    statusBarHeight: 0,
+    avatar: AVATARS[0]
   },
 
   onLoad() {
     const { statusBarHeight } = wx.getSystemInfoSync()
     this._loadDevices()
     this.setData({ statusBarHeight })
+  },
+
+  onShow() {
+    const avatarIndex = wx.getStorageSync('avatarIndex') || 0
+    this.setData({ avatar: AVATARS[avatarIndex] })
   },
 
   _loadDevices() {

@@ -18,8 +18,10 @@ Page({
     // 占位：模拟2秒扫描后找到设备
     this._scanTimer = setTimeout(() => {
       // 模拟数据：实际接入蓝牙后替换此处
+      const existingList = wx.getStorageSync('deviceList') || []
+      const nextNum = existingList.length + 1
       const mockDevices = [
-        { id: '001', name: '贝贝鲨001' },
+        { id: `device_${nextNum}_${Date.now()}`, name: `贝贝鲨${String(nextNum).padStart(3, '0')}` },
       ]
       if (mockDevices.length > 0) {
         this.setData({ state: 'found', devices: mockDevices })
