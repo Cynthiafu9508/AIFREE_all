@@ -1,0 +1,56 @@
+.page {
+  padding: 40rpx 48rpx 80rpx;
+  background: #fff;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #222;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.subtitle {
+  font-size: 26rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 48rpx;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #222;
+  display: block;
+  margin-top: 48rpx;
+  margin-bottom: 16rpx;
+}
+
+.para {
+  font-size: 28rpx;
+  color: #555;
+  line-height: 1.8;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.company {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 600;
+  display: block;
+  margin-top: 60rpx;
+}
+
+.date {
+  font-size: 26rpx;
+  color: #999;
+  display: block;
+  margin-top: 8rpx;
+}

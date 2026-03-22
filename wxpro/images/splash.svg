@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" width="390" height="844">
+  <!-- 蓝色背景 -->
+  <rect width="390" height="844" fill="#12C1F0"/>
+
+  <!-- 喇叭图标（文字左侧装饰） -->
+  <g transform="translate(18, 330)" opacity="0.95">
+    <polygon points="0,10 18,2 18,34 0,26" fill="white"/>
+    <rect x="0" y="13" width="7" height="12" rx="2" fill="white"/>
+    <path d="M22,7 Q34,18 22,30" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M27,2 Q44,18 27,35" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- 音符（右上装饰） -->
+  <g transform="translate(340, 300)" fill="white" opacity="0.9">
+    <rect x="8" y="0" width="2.5" height="16" rx="1"/>
+    <ellipse cx="6" cy="16" rx="5" ry="3.5" transform="rotate(-10,6,16)"/>
+    <rect x="8" y="0" width="12" height="2.5" rx="1"/>
+    <rect x="18" y="0" width="2.5" height="11" rx="1"/>
+    <ellipse cx="16" cy="11" rx="5" ry="3.5" transform="rotate(-10,16,11)"/>
+  </g>
+
+  <!-- 小星星 -->
+  <text x="72" y="308" font-size="16" fill="white" opacity="0.85">✦</text>
+  <text x="316" y="362" font-size="12" fill="white" opacity="0.7">✦</text>
+
+  <!-- 闪电（右侧） -->
+  <g transform="translate(344, 380)" fill="#CCFF00">
+    <polygon points="10,0 2,18 9,18 0,36 18,14 10,14 18,0"/>
+  </g>
+
+  <!-- 第一行：做宝贝的 -->
+  <text x="55" y="390"
+    font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif"
+    font-size="82"
+    font-weight="900"
+    fill="white">做宝贝的</text>
+
+  <!-- 第二行：第一个 + AI(黄绿) + 伙伴 -->
+  <text x="55" y="476"
+    font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif"
+    font-size="82"
+    font-weight="900"
+    fill="white">第一个<tspan fill="#CCFF00">AI</tspan>伙伴</text>
+
+  <!-- 黄绿色下划弧线 -->
+  <path d="M55,490 Q200,510 335,490" stroke="#CCFF00" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+
+  <!-- 副标题 -->
+  <text x="195" y="560"
+    font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif"
+    font-size="26"
+    font-weight="400"
+    fill="white"
+    text-anchor="middle"
+    letter-spacing="3">艾赋睿  AI.FREE</text>
+</svg>

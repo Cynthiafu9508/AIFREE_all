@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# 服务器信息
+SERVER=root@106.14.8.187
+REMOTE_PATH=/root/recover_ifree_server
+
+echo "=== 上传文件到服务器 ==="
+scp core/utils/db.py $SERVER:$REMOTE_PATH/core/utils/
+scp core/utils/init_user_tables.sql $SERVER:$REMOTE_PATH/core/utils/
+scp core/http_server.py $SERVER:$REMOTE_PATH/core/
+scp config.yaml $SERVER:$REMOTE_PATH/
+scp requirements.txt $SERVER:$REMOTE_PATH/
+
+echo "=== 下载服务器 docker-compose 文件到本地 ==="
+scp $SERVER:$REMOTE_PATH/docker-compose.yml ./docker-compose.yml
+scp $SERVER:$REMOTE_PATH/docker-compose_al

@@ -1,0 +1,118 @@
+<view class="page">
+  <!-- 标题 -->
+  <view class="header">
+    <text class="title">登录 / 注册</text>
+    <text class="subtitle">若手机号未注册，我们将自动为您注册</text>
+  </view>
+
+  <!-- ======== 账号密码模式 ======== -->
+  <block wx:if="{{mode === 'password'}}">
+    <!-- 账号输入 -->
+    <view class="input-wrap {{toast.field === 'account' ? 'shake' : ''}}">
+      <view class="input-box">
+        <input
+          class="input"
+          placeholder="输入账号"
+          placeholder-class="placeholder"
+          value="{{account}}"
+          bindinput="onAccountInput"
+          maxlength="64"
+        />
+      </view>
+      <view class="field-toast" wx:if="{{toast.field === 'account'}}">
+        <text>{{toast.msg}}</text>
+      </view>
+    </view>
+
+    <!-- 密码输入 -->
+    <view class="input-wrap {{toast.field === 'password' ? 'shake' : ''}}">
+      <view class="input-box">
+        <input
+          class="input"
+          placeholder="输入密码"
+          placeholder-class="placeholder"
+          password="{{!showPwd}}"
+          value="{{password}}"
+          bindinput="onPasswordInput"
+          maxlength="20"
+        />
+        <text class="eye-btn" bindtap="togglePwd">{{showPwd ? '👁' : '👁‍🗨'}}</text>
+      </view>
+      <view class="field-toast" wx:if="{{toast.field === 'password'}}">
+        <text>{{toast.msg}}</text>
+      </view>
+    </view>
+
+    <view class="forget-row">
+      <text class="forget-link" bindtap="goResetPassword">忘记密码</text>
+    </view>
+  </block>
+
+  <!-- ======== 验证码模式 ======== -->
+  <block wx:if="{{mode === 'sms'}}">
+    <!-- 手机号 -->
+    <view class="input-wrap {{toast.field === 'phone' ? 'shake' : ''}}">
+      <view class="phone-wrap">
+        <text class="phone-prefix">+86</text>
+        <view class="divider-v"></view>
+        <input
+          class="input phone-input"
+          placeholder="输入手机号"
+          placeholder-class="placeholder"
+          type="number"
+          value="{{phone}}"
+          bindinput="onPhoneInput"
+          maxlength="11"
+        />
+      </view>
+      <!-- Tooltip：手机号格式错误 -->
+      <view class="tooltip" wx:if="{{toast.field === 'phone'}}">
+        <text>{{toast.msg}}</text>
+        <view class="tooltip-arrow"></view>
+      </view>
+    </view>
+
+    <!-- 验证码 -->
+    <view class="input-wrap {{toast.field === 'code' ? 'shake' : ''}}">
+      <view class="code-wrap">
+        <input
+          class="input code-input"
+          placeholder="输入验证码"
+          placeholder-class="placeholder"
+          type="number"
+          value="{{code}}"
+          bindinput="onCodeInput"
+          maxlength="6"
+        />
+        <text
+          class="code-btn {{countdown > 0 ? 'code-btn-disabled' : ''}}"
+          bindtap="sendSms"
+        >{{countdown > 0 ? countdown + 's' : '获取验证码'}}</text>
+      </view>
+      <view class="field-toast" wx:if="{{toast.field === 'code'}}">
+        <text>{{toast.msg}}</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 登录按钮 -->
+  <view class="btn-primary {{loading ? 'btn-loading' : ''}}" bindtap="onLogin">
+    <text wx:if="{{!loading}}">登 录</text>
+    <text wx:if="{{loading}}">登录中...</text>
+  </view>
+
+  <!-- 切换模式 — 带边框文本框样式 -->
+  <view class="switch-row" bindtap="switchMode">
+    <text class="switch-link">{{mode === 'password' ? '使用验证码登录' : '使用账号密码登录'}}</text>
+  </view>
+
+  <!-- 协议 — 固定页面底部 -->
+  <view class="agreement-row">
+    <view class="checkbox {{agreed ? 'checked' : ''}}" bindtap="toggleAgree">
+      <text class="check-icon" wx:if="{{agreed}}">✓</text>
+    </view>
+    <view class="agreement-text">
+      <text>同意</text><text class="link-text" bindtap="openService">《软件许可》</text><text class="link-text" bindtap="openPrivacy">《隐私协议》</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+.DS_Store
+*.tar.gz
+微信图片_*.jpg
+wxpro/node_modules/
+recover_ifree_server/__pycache__/
+recover_ifree_server/**/__pycache__/
+recover_ifree_server/**/*.pyc

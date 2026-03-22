@@ -1,0 +1,246 @@
+.page {
+  min-height: 100vh;
+  padding: 200rpx 48rpx 60rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 标题 */
+.header {
+  margin-bottom: 72rpx;
+}
+.title {
+  display: block;
+  font-size: 52rpx;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 12rpx;
+}
+.subtitle {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 输入框容器 */
+.input-wrap {
+  position: relative;
+  margin-bottom: 32rpx;
+}
+
+/* 账号/密码外层容器，与 phone-wrap/code-wrap 保持一致 */
+.input-box {
+  display: flex;
+  align-items: center;
+  height: 96rpx;
+  background: #F5F6F8;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.input {
+  flex: 1;
+  height: 96rpx;
+  background: transparent;
+  padding: 0 32rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.placeholder {
+  color: #BBBBBB;
+  font-size: 30rpx;
+}
+
+/* 密码眼睛 */
+.eye-btn {
+  padding-right: 28rpx;
+  font-size: 36rpx;
+  color: #999;
+  flex-shrink: 0;
+}
+
+/* 手机号组合 */
+.phone-wrap {
+  display: flex;
+  align-items: center;
+  height: 96rpx;
+  background: #F5F6F8;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.phone-prefix {
+  padding: 0 24rpx 0 32rpx;
+  font-size: 30rpx;
+  color: #333;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.divider-v {
+  width: 2rpx;
+  height: 40rpx;
+  background: #DDDDDD;
+  flex-shrink: 0;
+}
+.phone-input {
+  flex: 1;
+  background: transparent;
+  border-radius: 0;
+  padding-left: 24rpx;
+}
+
+/* 验证码组合 */
+.code-wrap {
+  display: flex;
+  align-items: center;
+  height: 96rpx;
+  background: #F5F6F8;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.code-input {
+  flex: 1;
+  background: transparent;
+  border-radius: 0;
+}
+.code-btn {
+  padding: 0 28rpx;
+  font-size: 26rpx;
+  color: #29A8E0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-left: 2rpx solid #DDDDDD;
+  height: 96rpx;
+  line-height: 96rpx;
+}
+.code-btn-disabled {
+  color: #BBBBBB;
+}
+
+/* 忘记密码 */
+.forget-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16rpx;
+}
+.forget-link {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 登录按钮（view 模拟，避免 button 默认宽度问题） */
+.btn-primary {
+  width: 100%;
+  height: 96rpx;
+  background: #29A8E0;
+  border-radius: 48rpx;
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: 600;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24rpx;
+}
+.btn-loading {
+  opacity: 0.7;
+}
+
+/* 切换登录方式 — 带边框文本框 */
+.switch-row {
+  margin-top: 32rpx;
+  width: 100%;
+  height: 96rpx;
+  border: 2rpx solid #DDDDDD;
+  border-radius: 48rpx;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.switch-link {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 1;
+}
+
+/* 协议 — 固定页面底部 */
+.agreement-row {
+  position: fixed;
+  bottom: 48rpx;
+  left: 58rpx;
+  right: 48rpx;
+  display: flex;
+  flex-direction: row;
+}
+.checkbox {
+  width: 35rpx;
+  height: 35rpx;
+  border: 2rpx solid #CCCCCC;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-right: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.checkbox.checked {
+  background: #29A8E0;
+  border-color: #29A8E0;
+}
+.check-icon {
+  color: #fff;
+  font-size: 26rpx;
+}
+.agreement-text {
+  font-size: 30rpx;
+  color: #999;
+  line-height: 44rpx;
+}
+.link-text {
+  color: #29A8E0;
+}
+
+/* Field Toast（黑色胶囊错误提示） */
+.field-toast {
+  position: absolute;
+  top: -64rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(40, 40, 40, 0.88);
+  color: #fff;
+  font-size: 24rpx;
+  padding: 12rpx 28rpx;
+  border-radius: 32rpx;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Tooltip（手机号下方气泡） */
+.tooltip {
+  position: absolute;
+  top: 104rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(40, 40, 40, 0.88);
+  color: #fff;
+  font-size: 24rpx;
+  padding: 12rpx 28rpx;
+  border-radius: 32rpx;
+  white-space: nowrap;
+  z-index: 10;
+}
+.tooltip-arrow {
+  position: absolute;
+  top: -14rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 12rpx solid transparent;
+  border-right: 12rpx solid transparent;
+  border-bottom: 14rpx solid rgba(40,40,40,0.88);
+}

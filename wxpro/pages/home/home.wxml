@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="content">
+    <!-- 提示气泡 -->
+    <view class="hint-area">
+      <text class="hint-text">智能设备的电源&#10;在鲨鱼背包里哦</text>
+      <image class="hint-arrow" src="/images/hint-arrow.svg" mode="aspectFit" />
+    </view>
+
+    <!-- 玩偶图片 -->
+    <view class="toy-wrap">
+      <image class="toy-img" src="/images/partner.png" mode="aspectFit" />
+    </view>
+
+    <!-- 绑定设备按钮 -->
+    <view class="btn-bind" bindtap="onBindDevice">请先绑定设备</view>
+  </view>
+
+  <!-- 底部 TabBar 占位 -->
+  <view class="tab-placeholder"></view>
+</view>

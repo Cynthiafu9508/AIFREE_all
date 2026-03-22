@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/splash/splash",
+    "pages/login/login",
+    "pages/home/home",
+    "pages/theater/theater",
+    "pages/growth/growth",
+    "pages/profile/profile",
+    "pages/reset-password/reset-password",
+    "pages/doc/service",
+    "pages/doc/privacy"
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#18AEFB",
+    "backgroundColor": "#ffffff",
+    "list": [
+      { "pagePath": "pages/home/home", "text": "伙伴" },
+      { "pagePath": "pages/theater/theater", "text": "剧场" },
+      { "pagePath": "pages/growth/growth", "text": "成长" },
+      { "pagePath": "pages/profile/profile", "text": "我的" }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "艾瑞春",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
