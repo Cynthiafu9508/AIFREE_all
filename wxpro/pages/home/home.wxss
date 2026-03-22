@@ -13,7 +13,7 @@
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top);
   /* 顶部留白：状态栏以下，内容从约 15% 处开始 */
-  padding-top: calc(env(safe-area-inset-top) + 15vh);
+  padding-top: calc(env(safe-area-inset-top) + 35vh);
 }
 
 /* ── ① 提示文案区 ── */
@@ -27,11 +27,11 @@
   margin-bottom: 24rpx;
 }
 
-/* 两行文案容器，强制纵向排列 */
+/* 两行文案容器：两行之间左对齐，整体由 tip-box 居中 */
 .tip-lines {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 /* 每一行单独一个 text，不依赖宽度自动换行 */
