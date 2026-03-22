@@ -1,20 +1,29 @@
+<!-- ========================
+     伙伴页  home.wxml
+     结构：page > content > [tip / dog / btn]
+     ======================== -->
 <view class="page">
-  <view class="content">
-    <!-- 提示气泡 -->
-    <view class="hint-area">
-      <text class="hint-text">智能设备的电源&#10;在鲨鱼背包里哦</text>
-      <image class="hint-arrow" src="/images/hint-arrow.svg" mode="aspectFit" />
-    </view>
 
-    <!-- 玩偶图片 -->
-    <view class="toy-wrap">
-      <image class="toy-img" src="/images/partner.png" mode="aspectFit" />
+  <!-- ① 提示文案区 -->
+  <view class="tip-box">
+    <view class="tip-lines">
+      <text class="tip-line">智能设备的电源</text>
+      <text class="tip-line">在鲨鱼背包里哦～</text>
     </view>
-
-    <!-- 绑定设备按钮 -->
-    <view class="btn-bind" bindtap="onBindDevice">请先绑定设备</view>
+    <image class="tip-arrow" src="/images/hint-arrow.svg" mode="aspectFit" />
   </view>
 
-  <!-- 底部 TabBar 占位 -->
+  <!-- ② 狗狗图片区 -->
+  <view class="dog-wrap">
+    <image class="dog-img" src="/images/partner.png" mode="aspectFit" />
+  </view>
+
+  <!-- ③ 按钮区 -->
+  <view class="btn-wrap">
+    <view class="primary-btn" bindtap="onBindDevice">请先绑定设备</view>
+  </view>
+
+  <!-- ④ TabBar 占位 -->
   <view class="tab-placeholder"></view>
+
 </view>
