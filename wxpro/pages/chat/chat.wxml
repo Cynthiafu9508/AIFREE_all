@@ -6,7 +6,7 @@
     <view class="nav-right"></view>
   </view>
 
-  <scroll-view class="msg-list" scroll-y scroll-into-view="{{scrollTo}}" scroll-with-animation>
+  <scroll-view class="msg-list" scroll-y scroll-into-view="{{scrollTo}}">
     <view wx:for="{{messages}}" wx:key="id" id="msg-{{item.id}}">
 
       <!-- 时间分割线 -->
@@ -15,20 +15,20 @@
       </view>
 
       <!-- 左侧气泡（设备说的） -->
-      <view class="bubble-row left" wx:if="{{item.type === 'left'}}">
-        <view class="bubble bubble-left">
+      <view class="bubble-row bubble-row-left" wx:if="{{item.type === 'left'}}">
+        <view class="bubble-left">
           <text class="bubble-text">{{item.text}}</text>
         </view>
       </view>
 
       <!-- 右侧气泡（用户说的） -->
-      <view class="bubble-row right" wx:if="{{item.type === 'right'}}">
-        <view class="bubble bubble-right">
+      <view class="bubble-row bubble-row-right" wx:if="{{item.type === 'right'}}">
+        <view class="bubble-right">
           <text class="bubble-text">{{item.text}}</text>
         </view>
       </view>
 
     </view>
-    <view class="list-bottom"></view>
+    <view class="list-bottom" id="list-bottom"></view>
   </scroll-view>
 </view>

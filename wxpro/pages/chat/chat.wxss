@@ -14,7 +14,7 @@
   height: 88rpx;
   background: #dceef8;
   flex-shrink: 0;
-  margin-top: 5vh;
+  margin-top: 0;
 }
 
 .nav-back {
@@ -36,6 +36,7 @@
 /* 消息列表 */
 .msg-list {
   flex: 1;
+  height: 0;
   padding: 16rpx 24rpx 0;
   box-sizing: border-box;
 }
@@ -58,24 +59,24 @@
   margin-bottom: 20rpx;
 }
 
-.bubble-row.left  { justify-content: flex-start; }
-.bubble-row.right { justify-content: flex-end; }
+.bubble-row-left  { justify-content: flex-start; }
+.bubble-row-right { justify-content: flex-end; }
 
 /* 气泡 */
-.bubble {
+.bubble-left {
   max-width: 72%;
   padding: 24rpx 28rpx;
   border-radius: 32rpx;
-}
-
-.bubble-left {
-  background: #ffffff;
   border-top-left-radius: 8rpx;
+  background: #ffffff;
 }
 
 .bubble-right {
-  background: #f5d85a;
+  max-width: 72%;
+  padding: 24rpx 28rpx;
+  border-radius: 32rpx;
   border-top-right-radius: 8rpx;
+  background: #f5d85a;
 }
 
 .bubble-text {

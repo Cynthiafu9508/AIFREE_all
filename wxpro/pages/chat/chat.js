@@ -26,9 +26,8 @@ Page({
   },
 
   onReady() {
-    // 滚动到最新消息
-    const last = this.data.messages[this.data.messages.length - 1]
-    this.setData({ scrollTo: `msg-${last.id}` })
+    // 滚动到底部占位元素，比滚动到最后一条消息更稳定
+    this.setData({ scrollTo: 'list-bottom' })
   },
 
   goBack() { wx.navigateBack() }
