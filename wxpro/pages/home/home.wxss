@@ -3,8 +3,27 @@
    间距系统：16 / 24 / 32rpx
    ======================== */
 
+/* ── 设置按钮（absolute，仅此元素） ── */
+.settings-btn {
+  position: absolute;
+  top: 220rpx;
+  left: 52rpx;
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.settings-icon {
+  width: 72rpx;
+  height: 72rpx;
+}
+
 /* ── 页面容器 ── */
 .page {
+  position: relative;
   min-height: 100vh;
   background: linear-gradient(160deg, #c8d8e2 0%, #a8bcc8 60%, #9aaebb 100%);
   display: flex;
@@ -37,7 +56,7 @@
 /* 每一行单独一个 text，不依赖宽度自动换行 */
 .tip-line {
   display: block;
-  font-size: 34rpx;
+  font-size: 40rpx;
   color: #ffffff;
   font-weight: 500;
   line-height: 1.7;
@@ -68,7 +87,7 @@
 
 /* ── ③ 按钮区 ── */
 .btn-wrap {
-  width: 100%;
+  width: 80%;
   padding: 0 48rpx;
   box-sizing: border-box;
 }
