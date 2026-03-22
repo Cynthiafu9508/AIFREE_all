@@ -10,7 +10,7 @@
       <image class="tip-arrow" src="/images/hint-arrow.svg" mode="aspectFit" />
     </view>
     <view class="dog-wrap">
-      <image class="dog-img" src="/images/partner.png" mode="aspectFit" />
+      <image class="dog-img" src="/images/partner.jpg" mode="aspectFit" />
     </view>
     <view class="btn-wrap">
       <view class="primary-btn" bindtap="onBindDevice">请先绑定设备</view>
@@ -55,7 +55,7 @@
       >
         <!-- 缩略图 -->
         <view class="ep-thumb-wrap">
-          <image class="ep-thumb" src="/images/partner.png" mode="aspectFill" />
+          <image class="ep-thumb" src="/images/partner.jpg" mode="aspectFill" />
           <!-- 播放图标（已解锁） -->
           <view class="ep-play-icon" wx:if="{{item.status === 'unlocked'}}">
             <view class="play-triangle"></view>

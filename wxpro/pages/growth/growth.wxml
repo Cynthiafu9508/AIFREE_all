@@ -10,7 +10,7 @@
       <image class="tip-arrow" src="/images/hint-arrow.svg" mode="aspectFit" />
     </view>
     <view class="dog-wrap">
-      <image class="dog-img" src="/images/partner.png" mode="aspectFit" />
+      <image class="dog-img" src="/images/partner.jpg" mode="aspectFit" />
     </view>
     <view class="btn-wrap">
       <view class="primary-btn" bindtap="onBindDevice">请先绑定设备</view>

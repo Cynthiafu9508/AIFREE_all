@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
-  <!-- 白色圆形背景 -->
-  <circle cx="24" cy="24" r="24" fill="#ffffff" filter="drop-shadow(0 1px 4px rgba(0,0,0,0.15))"/>
-  <!-- 刷新箭头 -->
-  <path d="M24 12 A12 12 0 1 1 13 30" stroke="#18AEFB" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <!-- 箭头头部 -->
-  <polyline points="9,26 13,30 17,26" stroke="#18AEFB" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
