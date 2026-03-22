@@ -7,6 +7,9 @@
     "pages/growth/growth",
     "pages/profile/profile",
     "pages/reset-password/reset-password",
+    "pages/password-setting/password-setting",
+    "pages/help/help",
+    "pages/device/device",
     "pages/doc/service",
     "pages/doc/privacy"
   ],

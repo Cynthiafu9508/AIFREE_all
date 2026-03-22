@@ -9,7 +9,7 @@ Page({
   },
 
   goSettings() {
-    wx.navigateTo({ url: '/pages/settings/settings' })
+    wx.navigateTo({ url: '/pages/device/device' })
   },
 
   showMenu() {
