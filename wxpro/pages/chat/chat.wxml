@@ -1,0 +1,34 @@
+<view class="page">
+  <view style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-bar">
+    <view class="nav-back" bindtap="goBack">‹</view>
+    <text class="nav-title">聊天记录</text>
+    <view class="nav-right"></view>
+  </view>
+
+  <scroll-view class="msg-list" scroll-y scroll-into-view="{{scrollTo}}" scroll-with-animation>
+    <view wx:for="{{messages}}" wx:key="id" id="msg-{{item.id}}">
+
+      <!-- 时间分割线 -->
+      <view class="time-row" wx:if="{{item.type === 'time'}}">
+        <text class="time-text">{{item.text}}</text>
+      </view>
+
+      <!-- 左侧气泡（设备说的） -->
+      <view class="bubble-row left" wx:if="{{item.type === 'left'}}">
+        <view class="bubble bubble-left">
+          <text class="bubble-text">{{item.text}}</text>
+        </view>
+      </view>
+
+      <!-- 右侧气泡（用户说的） -->
+      <view class="bubble-row right" wx:if="{{item.type === 'right'}}">
+        <view class="bubble bubble-right">
+          <text class="bubble-text">{{item.text}}</text>
+        </view>
+      </view>
+
+    </view>
+    <view class="list-bottom"></view>
+  </scroll-view>
+</view>

@@ -1,15 +1,8 @@
-<!-- ========================
-     伙伴页  home.wxml
-     结构：page > content > [tip / dog / btn]
-     ======================== -->
-<view class="page">
-
-  <!-- 设置按钮（absolute，仅此元素允许） -->
+<!-- 未绑定状态 -->
+<view class="page page-unbound" wx:if="{{!isBound}}">
   <view class="settings-btn" bindtap="goSettings">
     <image class="settings-icon" src="/images/设置logo.png" mode="aspectFit" />
   </view>
-
-  <!-- ① 提示文案区 -->
   <view class="tip-box">
     <view class="tip-lines">
       <text class="tip-line">智能设备的电源</text>
@@ -17,21 +10,14 @@
     </view>
     <image class="tip-arrow" src="/images/hint-arrow.svg" mode="aspectFit" />
   </view>
-
-  <!-- ② 狗狗图片区 -->
   <view class="dog-wrap">
     <image class="dog-img" src="/images/partner.png" mode="aspectFit" />
   </view>
-
-  <!-- ③ 按钮区 -->
   <view class="btn-wrap">
     <view class="primary-btn" bindtap="onBindDevice">请先绑定设备</view>
   </view>
-
-  <!-- ④ TabBar 占位 -->
   <view class="tab-placeholder"></view>
 
-  <!-- 添加设备引导弹窗 -->
   <view class="add-modal-mask" wx:if="{{showAddModal}}">
     <view class="add-modal">
       <text class="add-modal-title">添加设备</text>
@@ -41,5 +27,46 @@
       <view class="add-modal-btn" bindtap="goToScan">我知道了</view>
     </view>
   </view>
+</view>
 
+<!-- 已绑定状态 -->
+<view class="page page-bound" wx:else>
+  <!-- 装饰气泡 -->
+  <view class="deco-circle dc1"></view>
+  <view class="deco-circle dc2"></view>
+  <view class="deco-circle dc3"></view>
+  <view class="deco-circle dc4"></view>
+  <!-- 星星装饰 -->
+  <text class="star s1">✦</text>
+  <text class="star s2">✦</text>
+  <text class="star s3">✦</text>
+  <text class="star s4">✦</text>
+  <text class="star s5">✦</text>
+  <text class="star s6">✦</text>
+  <text class="star s7">✦</text>
+  <text class="star s8">✦</text>
+
+  <!-- 状态栏占位 -->
+  <view style="height: {{statusBarHeight}}px;"></view>
+
+  <!-- 左上角：设置 + 状态胶囊（与未绑定态同位置） -->
+  <view class="status-pill" bindtap="goSettings">
+    <image class="pill-gear" src="/images/设置logo.png" mode="aspectFit" />
+    <view class="status-badge {{online ? 'online' : 'offline'}}">
+      <text class="status-text">{{online ? '在线' : '离线'}}</text>
+    </view>
+  </view>
+
+  <!-- 狗狗主图 -->
+  <view class="bound-dog-wrap">
+    <image class="bound-dog-img" src="/images/打招呼.png" mode="aspectFit" />
+  </view>
+
+  <!-- 右下角聊天按钮 -->
+  <view class="chat-btn" bindtap="onChat">
+    <image class="chat-icon-img" src="/images/聊天.png" mode="aspectFit" />
+  </view>
+
+  <!-- TabBar 占位 -->
+  <view class="tab-placeholder"></view>
 </view>

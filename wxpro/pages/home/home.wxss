@@ -1,9 +1,16 @@
-/* ========================
-   伙伴页  home.wxss
-   间距系统：16 / 24 / 32rpx
-   ======================== */
+/* ── 未绑定：页面容器 ── */
+.page-unbound {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #c8d8e2 0%, #a8bcc8 60%, #9aaebb 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: calc(env(safe-area-inset-top) + 35vh);
+}
 
-/* ── 设置按钮（absolute，仅此元素） ── */
+/* 设置按钮（absolute，仅此元素） */
 .settings-btn {
   position: absolute;
   top: 220rpx;
@@ -15,27 +22,9 @@
   justify-content: center;
   z-index: 10;
 }
+.settings-icon { width: 72rpx; height: 72rpx; }
 
-.settings-icon {
-  width: 72rpx;
-  height: 72rpx;
-}
-
-/* ── 页面容器 ── */
-.page {
-  position: relative;
-  min-height: 100vh;
-  background: linear-gradient(160deg, #c8d8e2 0%, #a8bcc8 60%, #9aaebb 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  padding-top: env(safe-area-inset-top);
-  /* 顶部留白：状态栏以下，内容从约 15% 处开始 */
-  padding-top: calc(env(safe-area-inset-top) + 35vh);
-}
-
-/* ── ① 提示文案区 ── */
+/* 提示文案区 */
 .tip-box {
   display: flex;
   flex-direction: column;
@@ -45,53 +34,27 @@
   box-sizing: border-box;
   margin-bottom: 24rpx;
 }
-
-/* 两行文案容器：两行之间左对齐，整体由 tip-box 居中 */
 .tip-lines {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-
-/* 每一行单独一个 text，不依赖宽度自动换行 */
 .tip-line {
   display: block;
   font-size: 40rpx;
   color: #ffffff;
   font-weight: 500;
   line-height: 1.7;
-  text-align: center;
-  text-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.12);
+  text-shadow: 0 2rpx 8rpx rgba(0,0,0,0.12);
 }
+.tip-arrow { width: 64rpx; height: 64rpx; margin-top: 16rpx; }
 
-/* 装饰箭头，视觉引导用，允许自由摆放 */
-.tip-arrow {
-  width: 64rpx;
-  height: 64rpx;
-  margin-top: 16rpx;
-  align-self: center;
-}
+/* 狗狗图片区 */
+.dog-wrap { display: flex; justify-content: center; width: 100%; margin-bottom: 32rpx; }
+.dog-img  { width: 504rpx; height: 378rpx; }
 
-/* ── ② 狗狗图片区 ── */
-.dog-wrap {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 32rpx;
-}
-
-.dog-img {
-  width: 504rpx;
-  height: 378rpx;
-}
-
-/* ── ③ 按钮区 ── */
-.btn-wrap {
-  width: 80%;
-  padding: 0 48rpx;
-  box-sizing: border-box;
-}
-
+/* 按钮区 */
+.btn-wrap { width: 80%; padding: 0 48rpx; box-sizing: border-box; }
 .primary-btn {
   height: 88rpx;
   background: #18AEFB;
@@ -103,10 +66,10 @@
   font-weight: 600;
   color: #ffffff;
   letter-spacing: 4rpx;
-  box-shadow: 0 8rpx 24rpx rgba(24, 174, 251, 0.4);
+  box-shadow: 0 8rpx 24rpx rgba(24,174,251,0.4);
 }
 
-/* ── 添加设备弹窗 ── */
+/* 添加设备弹窗 */
 .add-modal-mask {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -116,36 +79,15 @@
   justify-content: center;
   z-index: 999;
 }
-
 .add-modal {
   width: 600rpx;
   background: #ffffff;
   border-radius: 32rpx;
   padding: 48rpx 48rpx 40rpx;
 }
-
-.add-modal-title {
-  display: block;
-  font-size: 36rpx;
-  font-weight: 700;
-  color: #111;
-  margin-bottom: 24rpx;
-}
-
-.add-modal-step {
-  display: block;
-  font-size: 28rpx;
-  color: #333;
-  line-height: 1.7;
-  margin-bottom: 16rpx;
-}
-
-.add-modal-img {
-  width: 100%;
-  margin: 8rpx 0 24rpx;
-  border-radius: 16rpx;
-}
-
+.add-modal-title  { display: block; font-size: 36rpx; font-weight: 700; color: #111; margin-bottom: 24rpx; }
+.add-modal-step   { display: block; font-size: 28rpx; color: #333; line-height: 1.7; margin-bottom: 16rpx; }
+.add-modal-img    { width: 100%; margin: 8rpx 0 24rpx; border-radius: 16rpx; }
 .add-modal-btn {
   width: 100%;
   height: 96rpx;
@@ -160,7 +102,113 @@
   margin-top: 8rpx;
 }
 
-/* ── ④ TabBar 占位 ── */
+/* ── 已绑定：页面容器 ── */
+.page-bound {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* 多层渐变：天蓝底色 + 左上角高光 + 右下角深蓝 */
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 15%, rgba(255,255,255,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 80% 85%, rgba(130,185,230,0.4) 0%, transparent 65%),
+    linear-gradient(160deg, #cde8f8 0%, #aed4f0 40%, #9dc8ec 70%, #b8dbf5 100%);
+}
+
+/* 装饰气泡 */
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+}
+.dc1 { width: 200rpx; height: 200rpx; top: 6%;  left: -60rpx; }
+.dc2 { width: 140rpx; height: 140rpx; top: 18%; right: -30rpx; }
+.dc3 { width: 100rpx; height: 100rpx; top: 42%; left: 10rpx; }
+.dc4 { width: 180rpx; height: 180rpx; bottom: 22%; right: -50rpx; }
+
+/* 星星装饰 */
+.star {
+  position: absolute;
+  color: rgba(170,215,245,0.75);
+}
+.s1 { top: 14%; left: 10%; font-size: 22rpx; }
+.s2 { top: 9%;  left: 58%; font-size: 36rpx; }
+.s3 { top: 24%; left: 78%; font-size: 20rpx; }
+.s4 { top: 38%; left: 5%;  font-size: 16rpx; }
+.s5 { top: 52%; left: 82%; font-size: 28rpx; }
+.s6 { top: 68%; left: 35%; font-size: 14rpx; }
+.s7 { top: 76%; left: 72%; font-size: 22rpx; }
+.s8 { top: 30%; left: 50%; font-size: 18rpx; }
+
+/* 左上角状态胶囊（与未绑定态设置按钮同位置） */
+.status-pill {
+  position: absolute;
+  top: 220rpx;
+  left: 52rpx;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.92);
+  border-radius: 48rpx;
+  padding: 10rpx 20rpx 10rpx 12rpx;
+  gap: 10rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.1);
+  z-index: 10;
+}
+.pill-gear { width: 72rpx; height: 72rpx; }
+.status-badge {
+  border-radius: 32rpx;
+  padding: 6rpx 18rpx;
+}
+.status-badge.offline { background: #e0e0e0; }
+.status-badge.online  { background: #52c41a; }
+.status-text {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #ffffff;
+}
+.status-badge.offline .status-text { color: #666; }
+
+/* 狗狗主图 */
+.bound-dog-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 500rpx;
+}
+.bound-dog-img {
+  width: 638rpx;
+  height: 638rpx;
+  /* 边缘渐隐，融入背景 */
+  -webkit-mask-image: radial-gradient(ellipse 82% 80% at 50% 52%, black 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse 82% 80% at 50% 52%, black 45%, transparent 100%);
+}
+
+/* 右下角聊天按钮 */
+.chat-btn {
+  position: absolute;
+  right: calc(40rpx + 2vh);
+  bottom: calc(120rpx + 5vh + env(safe-area-inset-bottom));
+  width: 96rpx;
+  height: 96rpx;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.chat-icon-img {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+/* TabBar 占位（两个状态通用） */
 .tab-placeholder {
   height: calc(100rpx + env(safe-area-inset-bottom));
   flex-shrink: 0;

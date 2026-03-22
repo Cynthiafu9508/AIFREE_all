@@ -12,6 +12,7 @@
     "pages/device/device",
     "pages/add-device/add-device",
     "pages/configure-network/configure-network",
+    "pages/chat/chat",
     "pages/doc/service",
     "pages/doc/privacy"
   ],

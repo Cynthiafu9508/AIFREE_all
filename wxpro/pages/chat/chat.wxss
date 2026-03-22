@@ -1,0 +1,87 @@
+.page {
+  height: 100vh;
+  background: #dceef8;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 32rpx;
+  height: 88rpx;
+  background: #dceef8;
+  flex-shrink: 0;
+  margin-top: 5vh;
+}
+
+.nav-back {
+  font-size: 56rpx;
+  color: #333;
+  width: 64rpx;
+  line-height: 1;
+  margin-top: -8rpx;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #222;
+}
+
+.nav-right { width: 64rpx; }
+
+/* 消息列表 */
+.msg-list {
+  flex: 1;
+  padding: 16rpx 24rpx 0;
+  box-sizing: border-box;
+}
+
+/* 时间分割 */
+.time-row {
+  display: flex;
+  justify-content: center;
+  margin: 24rpx 0 20rpx;
+}
+
+.time-text {
+  font-size: 24rpx;
+  color: #aaa;
+}
+
+/* 气泡行 */
+.bubble-row {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.bubble-row.left  { justify-content: flex-start; }
+.bubble-row.right { justify-content: flex-end; }
+
+/* 气泡 */
+.bubble {
+  max-width: 72%;
+  padding: 24rpx 28rpx;
+  border-radius: 32rpx;
+}
+
+.bubble-left {
+  background: #ffffff;
+  border-top-left-radius: 8rpx;
+}
+
+.bubble-right {
+  background: #f5d85a;
+  border-top-right-radius: 8rpx;
+}
+
+.bubble-text {
+  font-size: 30rpx;
+  color: #222;
+  line-height: 1.65;
+}
+
+.list-bottom { height: 48rpx; }
