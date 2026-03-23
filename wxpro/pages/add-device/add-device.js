@@ -1,3 +1,6 @@
+// 设备名称前缀过滤（匹配 ESP32 蓝牙广播名）
+const DEVICE_NAME_PREFIX = 'DTXZ'
+
 Page({
   data: {
     statusBarHeight: 0,
@@ -15,30 +18,76 @@ Page({
 
   startScan() {
     this.setData({ state: 'scanning', devices: [] })
-    // 占位：模拟2秒扫描后找到设备
-    this._scanTimer = setTimeout(() => {
-      // 模拟数据：实际接入蓝牙后替换此处
-      const existingList = wx.getStorageSync('deviceList') || []
-      const nextNum = existingList.length + 1
-      const mockDevices = [
-        { id: `device_${nextNum}_${Date.now()}`, name: `贝贝鲨${String(nextNum).padStart(3, '0')}` },
-      ]
-      if (mockDevices.length > 0) {
-        this.setData({ state: 'found', devices: mockDevices })
-      } else {
+    this._foundMap = {}
+
+    wx.openBluetoothAdapter({
+      success: () => {
+        this._startDiscovery()
+      },
+      fail: (err) => {
+        console.log('openBluetoothAdapter fail', err)
+        this.setData({ state: 'notFound' })
+        wx.showToast({ title: '请开启手机蓝牙', icon: 'none' })
+      }
+    })
+  },
+
+  _startDiscovery() {
+    wx.startBluetoothDevicesDiscovery({
+      allowDuplicatesKey: false,
+      success: () => {
+        wx.onBluetoothDeviceFound((res) => {
+          this._onDeviceFound(res.devices)
+        })
+        // 扫描超时：10 秒后若无结果则显示未找到
+        this._scanTimer = setTimeout(() => {
+          this._stopDiscovery()
+          if (this.data.devices.length === 0) {
+            this.setData({ state: 'notFound' })
+          }
+        }, 10000)
+      },
+      fail: () => {
         this.setData({ state: 'notFound' })
       }
-    }, 2000)
+    })
+  },
+
+  _onDeviceFound(bleDevices) {
+    const newDevices = []
+    bleDevices.forEach(d => {
+      const name = d.name || d.localName || ''
+      if (!name.startsWith(DEVICE_NAME_PREFIX)) return
+      if (this._foundMap[d.deviceId]) return
+      this._foundMap[d.deviceId] = true
+      newDevices.push({ id: d.deviceId, name: name })
+    })
+
+    if (newDevices.length > 0) {
+      const list = this.data.devices.concat(newDevices)
+      this.setData({ state: 'found', devices: list })
+    }
+  },
+
+  _stopDiscovery() {
+    wx.stopBluetoothDevicesDiscovery({ fail() {} })
+    if (this._scanTimer) {
+      clearTimeout(this._scanTimer)
+      this._scanTimer = null
+    }
   },
 
   onBind(e) {
     const { id, name } = e.currentTarget.dataset
+    this._stopDiscovery()
     wx.navigateTo({
-      url: `/pages/configure-network/configure-network?deviceId=${id}&deviceName=${encodeURIComponent(name)}`
+      url: `/pages/configure-network/configure-network?deviceId=${encodeURIComponent(id)}&deviceName=${encodeURIComponent(name)}`
     })
   },
 
   onUnload() {
-    if (this._scanTimer) clearTimeout(this._scanTimer)
+    this._stopDiscovery()
+    wx.offBluetoothDeviceFound()
+    wx.closeBluetoothAdapter({ fail() {} })
   }
 })
